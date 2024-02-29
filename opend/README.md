@@ -49,7 +49,6 @@ http://localhost:8080/
         <div className="horizontal-center">
         </div>
       </div>
-
 ```
 
 # Loader HTML
@@ -131,3 +130,4 @@ dfx canister call <REPLACE WITH NFT CANISTER ID> transferOwnership '(principal "
 ```
 const dangPrincipal = Principal.fromText("<REPLACE WITH TOKEN CANISTER ID>");
 ```
+in the iteam .jsx change the hostname if u are ginning error

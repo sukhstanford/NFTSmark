@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
-import { Actor ,HttpAgent} from "@dfinity/agent"
+import { Actor , HttpAgent} from "@dfinity/agent"
 import { idlFactory } from "../../../declarations/nft";
 import {Principal} from "@dfinity/principal";
 function Item(props) {
@@ -9,7 +9,8 @@ function Item(props) {
   const [owner , setowner] = useState();
   const id = Principal.fromText(props.id); 
 
-  const loaclHost = "http://localhost:8081/";
+  const loaclHost =  props.hostname; //"http://localhost:8080/";
+  
   const agent = new HttpAgent({ host : loaclHost});
 
   async function loadnft() {
