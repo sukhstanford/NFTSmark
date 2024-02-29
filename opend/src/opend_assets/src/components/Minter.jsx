@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { opend } from "../../../declarations/opend";
 import {Principal} from "@dfinity/principal";
 import Item from "./Item";
+
 function Minter() {
   //console.log(nft);
   const {register,handleSubmit} =useForm();

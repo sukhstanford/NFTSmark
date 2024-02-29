@@ -7,9 +7,10 @@ function Item(props) {
   const [name, setname] = useState();
   const [image, setimage] =useState(); 
   const [owner , setowner] = useState();
-  const id = Principal.fromText(props.id); 
+  const id = props.id; 
+  console.log(id);
 
-  const loaclHost =  props.hostname; //"http://localhost:8080/";
+  const loaclHost = props.hostname; //"http://localhost:8080/";
   
   const agent = new HttpAgent({ host : loaclHost});
 
@@ -28,7 +29,7 @@ function Item(props) {
     setimage(image);
 
     const owner = await NFTActor.getOwner();
-
+    console.log(owner);
     const ownername = owner.toText();
 
     setowner(ownername);
@@ -45,7 +46,6 @@ function Item(props) {
           className="disCardMedia-root makeStyles-image-19 disCardMedia-media disCardMedia-img"
           src={image}
         />
-        
         <div className="disCardContent-root">
           <h2 className="disTypography-root makeStyles-bodyText-24 disTypography-h5 disTypography-gutterBottom">
           <span className="purple-text"></span>
