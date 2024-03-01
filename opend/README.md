@@ -54,12 +54,13 @@ http://localhost:8080/
 # Loader HTML
 
 ```
-<div className="lds-ellipsis">
+ <div className="lds-ellipsis">
         <div></div>
         <div></div>
         <div></div>
         <div></div>
       </div>
+
 ```
 
 # Button HTML

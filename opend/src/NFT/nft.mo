@@ -7,9 +7,9 @@ import Text "mo:base/Text";
 actor class NFT (name : Text, owner:Principal, content : [Nat8]) =this {
 //Debug.print("it works!");
 
-let itemName = name;
-let nftOwner = owner;
-let imageBytes = content;
+private let itemName = name;
+private var nftOwner = owner;
+private let imageBytes = content;
 
 public query func getName() : async Text{
     return itemName;
@@ -24,6 +24,14 @@ public query func getAsset() : async [Nat8] {
 public query func getCanisterID() : async Principal{
     return Principal.fromActor(this);
 };
+public shared(msg) func transferOwnerShip( newOwner : Principal) : async Text {
+    if (msg.caller == nftOwner) {
+      nftOwner := newOwner;
+      return "Success";
+    }else{
+        return "Error: Not initiated by NFT owner.";
+    }
+}
 
 };
 

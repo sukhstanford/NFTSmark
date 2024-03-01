@@ -9,11 +9,13 @@ function Minter() {
   const {register,handleSubmit} =useForm();
 const [nftPrincipal, setnftPrincipal ]=useState("");
 const [loderhidden, setloader] = useState(true);
+const [ishidden, setishidden]=useState(false);
 const hostname = window.location.host;
  const fullhostname = "http://" + hostname + "/";
 
   async function onSubmit(data){
      setloader(false);
+     setishidden(true);
   // console.log(data.name);
   //console.log(data.image);
   const name = data.name;
@@ -24,6 +26,7 @@ const hostname = window.location.host;
   //console.log(newNFID.toText());
   setnftPrincipal(newNFID);
   setloader(true);
+  setishidden(false);
   };
 
   //const nftPrincipal = "";
@@ -66,7 +69,7 @@ const hostname = window.location.host;
             <fieldset className="PrivateNotchedOutline-root-60 form-OutlinedInput-notchedOutline"></fieldset>
           </div>
         </div>
-        <div className="form-ButtonBase-root form-Chip-root makeStyles-chipBlue-108 form-Chip-clickable">
+        <div hidden={ishidden} className="form-ButtonBase-root form-Chip-root makeStyles-chipBlue-108 form-Chip-clickable">
           <span onClick={handleSubmit(onSubmit)} className="form-Chip-label">Mint NFT</span>
         </div>
       </form>
@@ -79,7 +82,7 @@ const hostname = window.location.host;
       Minted!
     </h3>
     <div className="horizontal-center">
-      <Item id ={nftPrincipal.toText()} hostname ={fullhostname}/>
+      <Item id ={nftPrincipal} hostname ={fullhostname}/>
     </div>
   </div>);
   };
